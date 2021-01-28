@@ -1,17 +1,27 @@
-import {HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {AppRoutingModule} from './app-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {NgModule} from '@angular/core';
 import {MaterialsModule} from './modules/materials/materials.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
+import {MainLayoutComponent} from './layouts/main-layout/main-layout.component';
+import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
+import {TagsPageComponent} from './pages/tags-page/tags-page.component';
+import {TagCardComponent} from './components/tag-card/tag-card.component';
+import {FilterPipe} from './pipes/filter.pipe';
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    MainLayoutComponent,
+    TagsPageComponent,
+    TagCardComponent,
+    FilterPipe,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
