@@ -1,37 +1,26 @@
 <div class="mat-headline">
-  <h2>Albums</h2>
+  <h2>Albums - {{tag | titlecase}}</h2>
 </div>
 <app-notification></app-notification>
 
-<mat-list>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
+<mat-list *ngIf="albums; else loading">
+  <mat-list-item *ngFor="let album of albums | albumFilter: filter | slice: startIndex : endIndex">
+    <app-album-card [album]="album"></app-album-card>
   </mat-list-item>
 </mat-list>
+
+<mat-paginator [length]="length"
+               [hidePageSize]="true"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="false"
+               [showFirstLastButtons]="true"
+               (page)="changePage($event)">
+</mat-paginator>
+
+<ng-template #loading>
+  <div class="spinner-wrapper">
+    <mat-spinner color="primary"></mat-spinner>
+    <mat-panel-title>Loading...</mat-panel-title>
+  </div>
+</ng-template>
+

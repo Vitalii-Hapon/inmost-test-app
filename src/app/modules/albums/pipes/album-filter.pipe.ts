@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {ITag} from '../models/response-models';
+import {IAlbum} from '../../../models/response-models';
 
 @Pipe({
-  name: 'tagFilter'
+  name: 'albumFilter'
 })
-export class TagFilterPipe implements PipeTransform {
+export class AlbumFilterPipe implements PipeTransform {
 
-  transform(tags: ITag[], filter: string = ''): ITag[] {
+  transform(tags: IAlbum[], filter: string = ''): IAlbum[] {
     if (!filter.toLowerCase().trim()) {
       return tags;
     } else {

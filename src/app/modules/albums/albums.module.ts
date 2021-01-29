@@ -6,6 +6,7 @@ import {FavoritesPageComponent} from './pages/favorites-page/favorites-page.comp
 import {AlbumsPageComponent} from './pages/albums-page/albums-page.component';
 import {MaterialsModule} from '../materials/materials.module';
 import { NotificationComponent } from './components/notification/notification.component';
+import { AlbumFilterPipe } from './pipes/album-filter.pipe';
 
 const routes: Routes = [
   {path: 'favorites', component: FavoritesPageComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
     AlbumsPageComponent,
     FavoritesPageComponent,
     NotificationComponent,
+    AlbumFilterPipe,
   ],
   imports: [
     CommonModule,

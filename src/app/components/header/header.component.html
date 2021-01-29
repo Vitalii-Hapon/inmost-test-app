@@ -28,7 +28,7 @@
       </mat-form-field>
 
     <a routerLink="/albums/favorites" class="mat-button">
-      <mat-icon matBadge="15" matBadgeColor="warn">favorite</mat-icon>
+      <mat-icon [matBadge]="favoritesCount$ | async" matBadgeColor="warn">favorite</mat-icon>
       <!-- Include text description of the icon's meaning for screen-readers -->
       <span class="cdk-visually-hidden">
           favorite albums

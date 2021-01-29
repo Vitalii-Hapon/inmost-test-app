@@ -1,15 +1,14 @@
 <mat-card>
-  <img mat-card-image src="../../../favicon.ico">
+  <img mat-card-image [src]="album.image[1]['#text']">
 
   <mat-card-content>
     <mat-card-title>
-      <p>tag title</p>
+      <p>{{album.name}}</p>
     </mat-card-title>
 
     <mat-card-actions>
-      <mat-icon [ngClass]="{'mat-primary': isFavorite}"
-                (click)="onToggleFavorites()">{{favoriteIcon()}}
-
+      <mat-icon [ngClass]="{'mat-primary': album.isFavorite}"
+                (click)="onToggleFavorites(album.name)">{{favoriteIcon()}}
       </mat-icon>
     </mat-card-actions>
   </mat-card-content>

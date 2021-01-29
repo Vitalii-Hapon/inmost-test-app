@@ -1,27 +1,24 @@
 <div class="mat-headline">Tags</div>
 
-<mat-list>
-  <mat-list-item>
-    <app-tag-card></app-tag-card>
-  </mat-list-item>
-
-  <mat-list-item>
-    <app-tag-card></app-tag-card>
-  </mat-list-item>
-
-  <mat-list-item>
-    <app-tag-card></app-tag-card>
-  </mat-list-item>
-
-  <mat-list-item>
-    <app-tag-card></app-tag-card>
-  </mat-list-item>
-
-  <mat-list-item>
-    <app-tag-card></app-tag-card>
-  </mat-list-item>
-
-  <mat-list-item>
-    <app-tag-card></app-tag-card>
+<mat-list *ngIf="tags; else loading">
+  <mat-list-item *ngFor="let tag of tags | tagFilter: filter | slice: startIndex : endIndex; index as i"
+                 [routerLink]="['/albums/', tag.name]">
+    <app-tag-card [tag]="tag"
+                  [i]="i"></app-tag-card>
   </mat-list-item>
 </mat-list>
+
+<mat-paginator [length]="length"
+               [hidePageSize]="true"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="false"
+               [showFirstLastButtons]="true"
+               (page)="changePage($event)">
+</mat-paginator>
+
+<ng-template #loading>
+  <div class="spinner-wrapper">
+    <mat-spinner color="primary"></mat-spinner>
+    <mat-panel-title>Loading...</mat-panel-title>
+  </div>
+</ng-template>

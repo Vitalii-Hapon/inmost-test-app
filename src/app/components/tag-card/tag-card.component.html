@@ -1,6 +1,6 @@
 <mat-card>
-  <img mat-card-image src="../../../favicon.ico">
+  <img mat-card-image [src]="imgSrc" alt="tag img">
   <mat-card-content>
-    tag title
+    <p>{{tag.name}}</p>
   </mat-card-content>
 </mat-card>

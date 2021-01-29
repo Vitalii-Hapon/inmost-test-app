@@ -1,8 +1,8 @@
-import { FilterPipe } from './filter.pipe';
+import { TagFilterPipe } from './filter.pipe';
 
-describe('FilterPipe', () => {
+describe('TagFilterPipe', () => {
   it('create an instance', () => {
-    const pipe = new FilterPipe();
+    const pipe = new TagFilterPipe();
     expect(pipe).toBeTruthy();
   });
 });

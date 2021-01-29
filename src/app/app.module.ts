@@ -1,8 +1,8 @@
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {NgModule, Provider} from '@angular/core';
 import {MaterialsModule} from './modules/materials/materials.module';
 import {ReactiveFormsModule} from '@angular/forms';
 
@@ -11,8 +11,15 @@ import {MainLayoutComponent} from './layouts/main-layout/main-layout.component';
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {TagsPageComponent} from './pages/tags-page/tags-page.component';
 import {TagCardComponent} from './components/tag-card/tag-card.component';
-import {FilterPipe} from './pipes/filter.pipe';
+import {TagFilterPipe} from './pipes/filter.pipe';
 import { HeaderComponent } from './components/header/header.component';
+import {HttpInterceptorService} from './interceptors/http-interceptor.service';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: HttpInterceptorService,
+  multi: true
+};
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -21,7 +28,7 @@ import { HeaderComponent } from './components/header/header.component';
     MainLayoutComponent,
     TagsPageComponent,
     TagCardComponent,
-    FilterPipe,
+    TagFilterPipe,
     NotFoundPageComponent,
     HeaderComponent,
   ],
@@ -33,7 +40,7 @@ import { HeaderComponent } from './components/header/header.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [INTERCEPTOR_PROVIDER],
 })
 export class AppModule {
 }

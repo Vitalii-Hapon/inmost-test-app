@@ -3,35 +3,22 @@
 </div>
 <app-notification></app-notification>
 
-<mat-list>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
-  </mat-list-item>
-  <mat-list-item>
-    <app-album-card></app-album-card>
+<mat-list *ngIf="albums; else noFavorites">
+  <mat-list-item *ngFor="let album of albums | albumFilter: filter | slice: startIndex : endIndex">
+    <app-album-card [album]="album"></app-album-card>
   </mat-list-item>
 </mat-list>
+
+<mat-paginator [length]="length"
+               [hidePageSize]="true"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="false"
+               [showFirstLastButtons]="true"
+               (page)="changePage($event)">
+</mat-paginator>
+
+<ng-template #noFavorites>
+  <div class="noFavorites">
+    <mat-panel-title>No favorites albums</mat-panel-title>
+  </div>
+</ng-template>
