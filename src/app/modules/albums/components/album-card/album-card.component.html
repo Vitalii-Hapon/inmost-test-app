@@ -1,1 +1,17 @@
-<p>album-card works!</p>
+<mat-card>
+  <img mat-card-image src="../../../favicon.ico">
+
+  <mat-card-content>
+    <mat-card-title>
+      <p>tag title</p>
+    </mat-card-title>
+
+    <mat-card-actions>
+      <mat-icon [ngClass]="{'mat-primary': isFavorite}"
+                (click)="onToggleFavorites()">{{favoriteIcon()}}
+
+      </mat-icon>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+

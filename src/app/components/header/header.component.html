@@ -1,0 +1,38 @@
+<mat-toolbar color="primary"
+             class="main"
+>
+  <mat-toolbar-row>
+    <h1 class="title">Your music</h1>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="nav">
+      <a routerLink="/" class="mat-flat-button link-button">
+        <mat-icon>undo</mat-icon>
+        <h3>Back</h3>
+      </a>
+
+      <mat-form-field>
+        <mat-label>Type text to filter</mat-label>
+
+        <input matInput type="text"
+               [formControl]="filterValue">
+
+        <button mat-button
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="clearFilter()">
+
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+    <a routerLink="/albums/favorites" class="mat-button">
+      <mat-icon matBadge="15" matBadgeColor="warn">favorite</mat-icon>
+      <!-- Include text description of the icon's meaning for screen-readers -->
+      <span class="cdk-visually-hidden">
+          favorite albums
+        </span>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>

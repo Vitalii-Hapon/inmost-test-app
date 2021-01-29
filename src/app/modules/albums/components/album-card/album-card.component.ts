@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NotificationService} from '../../services/notification.service';
 
 @Component({
   selector: 'app-album-card',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./album-card.component.scss']
 })
 export class AlbumCardComponent implements OnInit {
+  isFavorite = false;
 
-  constructor() { }
+  constructor(private notificationService: NotificationService) {
+  }
 
   ngOnInit(): void {
   }
 
+  onToggleFavorites(): void {
+    this.isFavorite = !this.isFavorite;
+    this.notificationService.notificate(this.isFavorite, 'title');
+  }
+
+  favoriteIcon(): string {
+    return this.isFavorite ? 'favorite' : 'favorite_borders';
+  }
 }

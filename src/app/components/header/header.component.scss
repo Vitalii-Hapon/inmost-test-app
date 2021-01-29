@@ -1,0 +1,17 @@
+.title {
+  margin: 0 auto;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+.link-button {
+  display: flex;
+  width: 8rem;
+  justify-content: space-between;
+  align-items: center;
+}

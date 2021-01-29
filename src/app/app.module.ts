@@ -12,6 +12,7 @@ import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.compo
 import {TagsPageComponent} from './pages/tags-page/tags-page.component';
 import {TagCardComponent} from './components/tag-card/tag-card.component';
 import {FilterPipe} from './pipes/filter.pipe';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -22,6 +23,7 @@ import {FilterPipe} from './pipes/filter.pipe';
     TagCardComponent,
     FilterPipe,
     NotFoundPageComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+.mat-headline {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+mat-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  mat-list-item {
+    height: auto;
+    width: 17%;
+    margin: 0.5rem 0.5rem;
+    cursor: pointer;
+  }
+}
